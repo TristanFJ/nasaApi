@@ -7,7 +7,8 @@
   </main>
   <footer>
     <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+      <!-- TODO anchor tag -->
+      <!-- Made with 💖 by <a src="https://github.com/tristanfj">Tristan Johns</a> -->
     </div>
   </footer>
 </template>
