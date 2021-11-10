@@ -9,7 +9,7 @@ class NeoService{
   async findNeo(){
     const res = await neoApi.get()
     // logger.log(res.data.near_earth_objects['2021-11-09'])
-    const neo = res.data.near_earth_objects['2021-11-09'].map(n => new Neo(n))
+    const neo = res.data.near_earth_objects['2021-11-10'].map(n => new Neo(n))
     AppState.neo = neo
     // logger.log(AppState.neo)
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+  <div class="">
     <div v-if="!neo" @click="search" class="home-card p-5 bg-white rounded elevation-3">
       <h1 class="my-5 bg-dark text-white p-3 rounded">
         Near Earth Objects
@@ -8,8 +8,8 @@
 
     <div v-if="neo">
 <div class="container-fluid">
-<div class="row justify-content-between">
-<div class="card elevation-5 col-md-3 border border-1 border-dark" v-for="n in neo" :key="n">
+<div class="row justify-content-evenly">
+<div class="card elevation-5 col-md-3 m-3 mb-3 border border-1 border-dark" v-for="n in neo" :key="n">
 
 
 
