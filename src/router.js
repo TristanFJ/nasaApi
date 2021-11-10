@@ -17,6 +17,11 @@ const routes = [
     component: loadPage('NASAPage')
   },
   {
+    path: '/NEO',
+    name: 'NEO',
+    component: loadPage('NEOPage')
+  },
+  {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),

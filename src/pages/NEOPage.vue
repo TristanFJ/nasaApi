@@ -1,20 +1,33 @@
 <template>
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div v-if="!apod" @click="search" class="home-card p-5 bg-white rounded elevation-3">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        NASA
+    <div v-if="!neo" @click="search" class="home-card p-5 bg-white rounded elevation-3">
+      <h1 class="my-5 bg-dark text-white p-3 rounded">
+        Near Earth Objects
       </h1>
     </div>
 
-    <div v-if="apod">
-      <h1>{{apod.title}}</h1>
-      <img style="max-height: 35vh" class="m-3" :src="apod.imgUrl" alt="">
-      <p>{{apod.description}}</p>
-      <h2>{{apod.date}}</h2>
-      
-      
-      
+    <div v-if="neo">
+<div class="container-fluid">
+<div class="row justify-content-between">
+<div class="card elevation-5 col-md-3 border border-1 border-dark" v-for="n in neo" :key="n">
+
+
+
+      <div class="m-2"> 
+     <p class="name card-title"> <b> Name: {{n.name}} </b> </p>
+     <p :class="{
+        'btn-danger': n.hazard,
+        'btn-success': !n.hazard,
+      }"> Hazard: {{n.hazard}} </p>
+     <p> Luminosity: {{n.magnitude}} </p>
       </div>
+</div>
+</div>
+</div>
+
+
+
+    </div>
   </div>
 </template>
 
@@ -22,19 +35,19 @@
 import { computed, ref } from '@vue/reactivity'
 import { logger } from '../utils/Logger'
 import Pop from '../utils/Pop'
-import { apodService } from '../services/ApodService'
+import { neoService } from '../services/NeoService'
 import { AppState } from '../AppState'
 
 export default {
-  name: 'NASA',
+  name: 'NEO',
 
   setup(){
     return {
-      apod: computed(()=> AppState.apod),
+      neo: computed(()=> AppState.neo),
 
       async search(){
         try {
-          await apodService.findApod()
+          await neoService.findNeo()
         } catch (error) {
           logger.error(error)
         }
@@ -50,6 +63,14 @@ p{
   max-width: 75vw;
   font-size: 1.25em;
 }
+
+.name{
+  max-width: 75vw;
+  font-size: 1.25em;
+  text-decoration: underline;
+}
+
+
 .home{
   display: grid;
   height: 80vh;

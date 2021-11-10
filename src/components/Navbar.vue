@@ -2,11 +2,6 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img
-          alt="logo"
-          src="../assets/img/cw-logo.png"
-          height="45"
-        />
       </div>
     </router-link>
     <button
@@ -25,6 +20,11 @@
         <li>
           <router-link :to="{ name: 'NASA' }" class="btn text-success lighten-30 selectable text-uppercase">
             NASA
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'NEO' }" class="btn text-success lighten-30 selectable text-uppercase">
+            Near Earth Objects
           </router-link>
         </li>
       </ul>

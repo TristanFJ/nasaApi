@@ -10,7 +10,6 @@ class ApodService{
     const res = await apodApi.get()
     const pic = new Picture(res.data)
     AppState.apod = pic
-    logger.log(AppState.apod)
   }
 }
 
